@@ -8,10 +8,25 @@ function Ingredients() {
   const [userIngredients, setUserIngredients] = useState([]);
   //
   const addIngredientsHandler = (ingredient) => {
-    setUserIngredients((prevIngredients) => [
-      ...prevIngredients,
-      { id: Math.random().toString(), ...ingredient },
-    ]);
+    fetch(
+      'https://section28-7275d-default-rtdb.firebaseio.com/ingredients.json',
+      {
+        method: 'POST',
+        //convert js object to json
+        body: JSON.stringify({ ingredient }),
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
+      .then((response) => {
+        //convert from json to js Code
+        return response.json();
+      })
+      .then((responseData) => {
+        setUserIngredients((prevIngredients) => [
+          ...prevIngredients,
+          { id: responseData.name, ...ingredient },
+        ]);
+      });
   };
 
   const removeIngredientsHandler = (ingredientId) => {
