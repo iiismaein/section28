@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #333333;
+}
+h1 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  height: 35px;
+}
+.render {
+  background-color: #008b8b;
+  margin: 40px;
+  color: white;
+  height: 1000px;
+}
+
+button {
+  font: inherit;
+  background: #ff2058;
+  padding: 0.5rem 2rem;
+  color: white;
+  border: 1px solid #ff2058;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+}
+
+button:focus {
+  outline: none;
+}
